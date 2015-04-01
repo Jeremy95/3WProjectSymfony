@@ -1,0 +1,7 @@
+store_backend_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: StoreBackendBundle:Default:index }
+
+store_backend_index:
+    path:     /dashboard/{name}
+    defaults: { _controller: StoreBackendBundle:Main:index }

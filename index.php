@@ -1,8 +1,8 @@
 <?php
 
-    $i = [];
+    $tab = [];
 
-    foreach ($i as $ip)
+    for($i=0; $i<sizeof($tab); $i++)
     {
 
     }
