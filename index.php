@@ -1,12 +1,8 @@
 <?php
 
+    $i = [];
 
-$i = [];
+    foreach ($i as $ip)
+    {
 
-foreach ($i as $ip)
-{
-
-}
-
-?>
-
+    }
