@@ -6,10 +6,22 @@ store_backend_index:
     path:     /dashboard/{name}
     defaults: { _controller: StoreBackendBundle:Main:index, name: null }
 
-store_backend_product:
-    path:     /product/{product}
-    defaults: { _controller: StoreBackendBundle:Main:product, product: null }
-
 store_backend_statics:
     resource: "@StoreBackendBundle/Resources/config/statics.yml"
     prefix:   /
+
+store_backend_products:
+    resource: "@StoreBackendBundle/Resources/config/modules/product.yml"
+    prefix:   /products
+
+store_backend_categories:
+    resource: "@StoreBackendBundle/Resources/config/modules/category.yml"
+    prefix:   /categories
+
+store_backend_cms:
+    resource: "@StoreBackendBundle/Resources/config/modules/cms.yml"
+    prefix:   /cms
+
+store_backend_suppliers:
+    resource: "@StoreBackendBundle/Resources/config/modules/supplier.yml"
+    prefix:   /suppliers

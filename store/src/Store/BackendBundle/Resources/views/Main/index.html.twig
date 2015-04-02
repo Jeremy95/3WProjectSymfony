@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Fil rouge</title>
-</head>
-<body>
+{% extends 'StoreBackendBundle::layout.html.twig' %}
 
-Dashboard de {% if name != null %} {{ name }} {% else %} Jeremy {% endif %}
+{% block content %}
 
-</body>
-</html>
+    <div class="row">
+        Dashboard de
+        {% if name != null %}
+            {{ name }}
+        {% else %}
+            Jeremy
+        {% endif %}
+    </div>
+    
+    <div class="row">
+        <a href="{{ path('store_backend_category_list') }}">Go to the list of category</a>
+    </div>
+
+{% endblock %}
+

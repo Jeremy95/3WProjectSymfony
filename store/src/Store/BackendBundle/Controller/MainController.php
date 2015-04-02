@@ -18,13 +18,4 @@ class MainController extends Controller
     {
         return $this->render('StoreBackendBundle:Main:index.html.twig', array('name' => $name));
     }
-
-    /**
-     * @param null $product
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function productAction($product = null)
-    {
-        return $this->render('StoreBackendBundle:Main:product.html.twig', array('product' => $product));
-    }
 }

@@ -1,0 +1,12 @@
+# Page list of Category
+store_backend_supplier_list:
+    path:     /list
+    defaults: { _controller: StoreBackendBundle:Supplier:list }
+
+store_backend_supplier_view:
+    path:     /view/{id}/{name}
+    defaults: { _controller: StoreBackendBundle:Supplier:view }
+    requirements:
+          id: \d+
+          name: "[a-zA-Z0-9-]{5,30}"
+          _method: GET

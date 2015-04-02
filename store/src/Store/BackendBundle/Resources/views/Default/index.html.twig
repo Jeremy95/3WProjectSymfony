@@ -1,1 +1,9 @@
-Hello {{ name }}!
+{% extends 'StoreBackendBundle::layout.html.twig' %}
+
+{% block content %}
+
+    <div class="row">
+        Hello {{ name }}!
+    </div>
+
+{% endblock %}

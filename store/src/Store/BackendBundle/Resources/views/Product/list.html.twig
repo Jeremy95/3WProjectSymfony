@@ -1,0 +1,22 @@
+{% extends 'StoreBackendBundle::layout.html.twig' %}
+
+{% block content %}
+
+    <div class="row">
+        Welcome to my list page product
+
+        <br/>
+
+        {% if tabs is defined %}
+            <ul>
+                {% for tab in tabs %}
+                    <li>{{ tab }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+
+
