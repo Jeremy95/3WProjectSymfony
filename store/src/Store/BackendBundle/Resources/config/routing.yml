@@ -4,4 +4,12 @@ store_backend_homepage:
 
 store_backend_index:
     path:     /dashboard/{name}
-    defaults: { _controller: StoreBackendBundle:Main:index }
+    defaults: { _controller: StoreBackendBundle:Main:index, name: null }
+
+store_backend_product:
+    path:     /product/{product}
+    defaults: { _controller: StoreBackendBundle:Main:product, product: null }
+
+store_backend_statics:
+    resource: "@StoreBackendBundle/Resources/config/statics.yml"
+    prefix:   /

@@ -1,7 +1,6 @@
 <?php
 
 namespace Store\BackendBundle\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -10,4 +9,5 @@ class DefaultController extends Controller
     {
         return $this->render('StoreBackendBundle:Default:index.html.twig', array('name' => $name));
     }
+
 }
