@@ -1,0 +1,61 @@
+{% block main_navigation %}
+
+    <!-- 2. $MAIN_NAVIGATION ===========================================================================
+
+        Main navigation
+    -->
+    <div id="main-navbar" class="navbar navbar-inverse" role="navigation">
+        <!-- Main menu toggle -->
+        <button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text">HIDE MENU</span>
+        </button>
+
+        <div class="navbar-inner">
+            <!-- Main navbar header -->
+            <div class="navbar-header">
+
+                <!-- Logo -->
+                <a href="index.html" class="navbar-brand">
+                    <div><img alt="Pixel Admin" src="{{ asset('bundles/storebackend/images/main-navbar-logo.png') }}"></div>
+                    ALittleJewerly
+                </a>
+
+                <!-- Main navbar toggle -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button>
+
+            </div>
+            <!-- / .navbar-header -->
+
+            <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="{{ app.request.attributes.get('_route') == 'store_backend_index' ? 'active' : '' }}">
+                            <a href="{{ path('store_backend_index') }}">Home</a>
+                        </li>
+
+                        <li class="{% if (app.request.attributes.get('_route') == 'store_backend_product_list') %} active {% endif %}">
+                            <a href="{{ path('store_backend_product_list') }}">Produits</a>
+                        </li>
+
+                        <li class="{% if (app.request.attributes.get('_route') == 'store_backend_category_list') %} active {% endif %}">
+                            <a href="{{ path('store_backend_category_list') }}">Catégories</a>
+                        </li>
+
+                        <li class="{% if (app.request.attributes.get('_route') == 'store_backend_cms_list') %} active {% endif %}">
+                            <a href="{{ path('store_backend_cms_list') }}">CMS</a>
+                        </li>
+
+                        <li class="{% if (app.request.attributes.get('_route') == 'store_backend_supplier_list') %} active {% endif %}">
+                            <a href="{{ path('store_backend_supplier_list') }}">Fournisseurs</a>
+                        </li>
+                    </ul>
+                    <!-- / .navbar-nav -->
+                </div>
+            </div>
+            <!-- / #main-navbar-collapse -->
+        </div>
+        <!-- / .navbar-inner -->
+    </div> <!-- / #main-navbar -->
+    <!-- /2. $END_MAIN_NAVIGATION -->
+
+{% endblock %}

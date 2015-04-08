@@ -1,22 +1,21 @@
 {% extends 'StoreBackendBundle::layout.html.twig' %}
 
+{% block titlepage %}Dashboard{% endblock %}
+
 {% block content %}
+    <h1><i class="fa fa-tags"></i>  Liste des produits</h1>
 
-    <div class="row">
-        Welcome to my list page product
-
-        <br/>
-
-        {% if tabs is defined %}
-            <ul>
-                {% for tab in tabs %}
-                    <li>{{ tab }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </div>
-
+        {% for product in products %}
+            <p>{{ product.ref }}</p>
+            <p>{{ product.title }}</p>
+            <p>{{ product.price }}</p>
+            <p>{{ product.description }}</p>
+            {% else %}
+                <div class="alert alert-dark">No product</div>
+        {% endfor %}
 
 {% endblock %}
+
+
 
 

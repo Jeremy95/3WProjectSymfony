@@ -1,19 +1,6 @@
 {% extends 'StoreBackendBundle::layout.html.twig' %}
 
-{% block content %}
+{% block titlepage %}Dashboard{% endblock %}
 
-    <div class="row">
-        Dashboard de
-        {% if name != null %}
-            {{ name }}
-        {% else %}
-            Jeremy
-        {% endif %}
-    </div>
-    
-    <div class="row">
-        <a href="{{ path('store_backend_category_list') }}">Go to the list of category</a>
-    </div>
-
-{% endblock %}
+{% block content %}<h1><i class="fa fa-caret-right"></i>  Page d'accueil Dashboard</h1>{% endblock %}
 

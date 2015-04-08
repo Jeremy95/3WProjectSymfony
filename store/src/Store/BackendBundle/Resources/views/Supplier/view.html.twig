@@ -1,9 +1,5 @@
 {% extends 'StoreBackendBundle::layout.html.twig' %}
 
-{% block content %}
+{% block titlepage %}Dashboard{% endblock %}
 
-    See the supplier: {{ id }}
-    <br/>
-    supplier name: {{ name }}
-
-{% endblock %}
+{% block content %}<h1><i class="fa fa-user"></i>  Fournisseur {{ name }} // {{ id }}</h1>{% endblock %}

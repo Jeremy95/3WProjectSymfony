@@ -1,9 +1,5 @@
 {% extends 'StoreBackendBundle::layout.html.twig' %}
 
-{% block content %}
+{% block titlepage %}Dashboard{% endblock %}
 
-    See the category: {{ id }}
-    <br/>
-    Category name: {{ name }}
-
-{% endblock %}
+{% block content %}<h1><i class="fa fa-cog"></i>  Catégorie {{ name }} // {{ id }}</h1>{% endblock %}
