@@ -16,6 +16,15 @@ class MainController extends Controller
      */
     public function indexAction($name = null)
     {
-        return $this->render('StoreBackendBundle:Main:index.html.twig', array('name' => $name));
+
+        $em = $this->getDoctrine()->getManager();
+
+        $comment = $em->getRepository("StoreBackendBundle:Comment")->getCommentByUser(1);
+
+
+        return $this->render('StoreBackendBundle:Main:index.html.twig', array(
+            'name' => $name,
+            'comments' =>$comment
+        ));
     }
 }

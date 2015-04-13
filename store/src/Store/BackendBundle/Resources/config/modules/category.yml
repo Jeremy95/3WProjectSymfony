@@ -8,5 +8,12 @@ store_backend_category_view:
     defaults: { _controller: StoreBackendBundle:Category:view }
     requirements:
           id: \d+
-          name: "[a-zA-Z0-9-]{5,30}"
+          name: "^[a-zA-Z0-9-]{3,30}$"
           _method: GET
+
+# remove category
+store_backend_category_remove:
+    path: /remove/{id}
+    defaults: { _controller:StoreBackendBundle:Category:remove }
+    requirements:
+     id: \d+

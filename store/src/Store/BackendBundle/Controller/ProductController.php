@@ -27,14 +27,33 @@ class ProductController extends Controller
 
     /**
      * @param $id
-     * @param $name
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function viewAction($id, $name)
+    public function viewAction($id)
     {
-        return $this->render('StoreBackendBundle:Product:view.html.twig', array(
-            'id' => $id,
-            'name' => $name
-        ));
+        $em = $this->getDoctrine()->getManager();
+
+        $product = $em->getRepository('StoreBackendBundle:Product')->find($id);
+
+        $meta = $em->getRepository('StoreBackendBundle:ProductMeta')->find($id);
+
+        return $this->render('StoreBackendBundle:Product:view.html.twig', array('product'=>$product,'meta'=>$meta));
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function removeAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $product = $em->getRepository('StoreBackendBundle:Product')->find($id);
+
+        $em->remove($product);
+        $em->flush();
+
+        return $this->redirectToRoute('store_backend_product_list');
+
     }
 }

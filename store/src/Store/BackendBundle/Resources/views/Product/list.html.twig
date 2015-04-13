@@ -5,17 +5,50 @@
 {% block content %}
     <h1><i class="fa fa-tags"></i>  Liste des produits</h1>
 
+    <table class="table table-primary">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Ref.</th>
+            <th>Titre</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Actif</th>
+            <th>Date de création</th>
+            <th>CMS</th>
+            <th>Fournisseurs</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
         {% for product in products %}
-            <p>{{ product.ref }}</p>
-            <p>{{ product.title }}</p>
-            <p>{{ product.price }}</p>
-            <p>{{ product.description }}</p>
-            {% else %}
-                <div class="alert alert-dark">No product</div>
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.ref }}</td>
+                <td><a href="{{ path('store_backend_product_view', {'name': product.slug, 'id': product.id}) }}">{{ product.title }}</a></td>
+                <td>{{ product.price }}€</td>
+                <td>{% if product.meta.video is defined %}{{ product.meta.video }}{% endif %}</td>
+                <td>{{ product.active ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' }}</td>
+                <td>{{ product.dateActive|date('d/m/Y') }}</td>
+                <td><span class="badge badge-info"><strong>{{ product.cms|length }}</strong></span> pages cms</td>
+                <td><span class="badge badge-info"><strong>{{ product.supplier|length }}</strong></span> fournisseurs</td>
+                <td>
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cogs"></i>  Actions <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('store_backend_product_view', {'id' : product.id, 'name' : product.slug}) }}"><i class="fa fa-search"></i>  Voir</a></li>
+                            <li><a href="#"><i class="fa fa-pencil"></i>  Editer</a></li>
+                            <li><a href="{{ path('store_backend_product_remove', {'id' : product.id}) }}"><i class="fa fa-times"></i>  Supprimer</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
         {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}
-
-
-
-

@@ -2,4 +2,40 @@
 
 {% block titlepage %}Dashboard{% endblock %}
 
-{% block content %}<h1><i class="fa fa-tag"></i>  Produit {{ name }} || {{ id }}</h1>{% endblock %}
+{% block content %}
+    <h1><i class="fa fa-tag"></i> {{ product.title }}</h1>
+
+    <p>Résumé : {{ product.summary }}</p>
+    <p>Description : {{ product.description }}</p>
+    <p>Quantité : {{ product.quantity }}</p>
+    <p>Prix : {{ product.price }}</p>
+    <p>Boutique : {{ product.jeweler }}</p>
+
+    <h3>Détails</h3>
+    <ul>
+        <li>Fournisseur {% if product.meta.video is defined %}{{ product.meta.video }}{% endif %}</li>
+    </ul>
+
+    <h3>Catégories associés :</h3>
+    <ul>
+        {% for category in product.category %}
+            <li>{{ category.title }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Tags associés :</h3>
+    <ul>
+        {% for tag in product.tag %}
+            <li>{{ tag.word }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Promotions associés</h3>
+    <ul>
+        {% for business in product.business %}
+            <li>{{ business.message }}</li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

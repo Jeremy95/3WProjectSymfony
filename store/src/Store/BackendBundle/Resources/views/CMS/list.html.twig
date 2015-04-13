@@ -2,4 +2,47 @@
 
 {% block titlepage %}Dashboard{% endblock %}
 
-{% block content %}<h1><i class="fa fa-arrows-alt"></i>  Liste des CMS</h1>{% endblock %}
+{% block content %}
+    <h1><i class="fa fa-arrows-alt"></i>  Liste des CMS</h1>
+
+    <table class="table table-primary">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Titre</th>
+            <th>Résumé</th>
+            <th>Etat</th>
+            <th>Nb. produits affectés</th>
+            <th>Date de création</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for oneCms in cms %}
+            <tr>
+                <td>{{ oneCms.id }}</td>
+                <td>{{ oneCms.title }}</td>
+                <td>{{ oneCms.summary }}</td>
+                <td>{{ oneCms.active ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' }}</td>
+                <td><span class="badge badge-info"><strong>{{ oneCms.product|length }}</strong></span> produits associés</td>
+                <td>{{ oneCms.dateCreated|date('d/m/Y') }}</td>
+                <td>
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cogs"></i>  Actions <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('store_backend_cms_view', {'id' : oneCms.id, 'name' : oneCms.title}) }}"><i class="fa fa-search"></i>  Voir</a></li>
+                            <li><a href="#"><i class="fa fa-pencil"></i>  Editer</a></li>
+                            <li><a href="{{ path('store_backend_cms_remove', {'id' : oneCms.id }) }}"><i class="fa fa-times"></i>  Supprimer</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

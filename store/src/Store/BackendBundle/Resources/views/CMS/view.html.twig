@@ -2,4 +2,16 @@
 
 {% block titlepage %}Dashboard{% endblock %}
 
-{% block content %}<h1><i class="fa fa-arrows-h"></i>  Voir le CMS {{ name }} || {{ id }}</h1>{% endblock %}
+{% block content %}
+
+    <h1><i class="fa fa-arrows-h"></i>  {{ cms.title }}</h1>
+
+    <p>Résumé : {{ cms.summary }}</p>
+    <p>Description : {{ cms.description }}</p>
+    <p>Image : {{ cms.image }}</p>
+    <p>Video : {{ cms.video }}</p>
+    <p>Date Création : {{ cms.dateCreated|date('d/m/Y') }}</p>
+    <p>Active : {{ cms.active }}</p>
+    <p>State : {{ cms.state }}</p>
+
+{% endblock %}

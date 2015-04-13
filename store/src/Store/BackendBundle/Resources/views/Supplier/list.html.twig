@@ -2,4 +2,49 @@
 
 {% block titlepage %}Dashboard{% endblock %}
 
-{% block content %}<h1><i class="fa fa-users"></i>  Liste des fournisseurs</h1>{% endblock %}
+{% block content %}
+
+    <h1><i class="fa fa-truck"></i>  Liste des fournisseurs</h1>
+
+    <table class="table table-primary">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Date de création</th>
+            <th>Nb. de produits associés</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for supplier in suppliers %}
+            <tr>
+                <td>{{ supplier.id }}</td>
+                <td>{{ supplier.name }}</td>
+                <td>{{ supplier.description }}</td>
+                <td><img src="{{ supplier.image }}" width="100px" height="auto"></td>
+                <td>{{ supplier.dateCreated|date('d/m/Y') }}</td>
+                <td><span class="badge badge-info"><strong>{{ supplier.product|length }}</strong></span> produits associés</td>
+                <td>
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cogs"></i>  Actions <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('store_backend_supplier_view', {'id' : supplier.id, 'name' : supplier.name}) }}"><i class="fa fa-search"></i>  Voir</a></li>
+                            <li><a href="#"><i class="fa fa-pencil"></i>  Editer</a></li>
+                            <li><a href="{{ path('store_backend_supplier_remove', {'id' : supplier.id }) }}"><i class="fa fa-times"></i>  Supprimer</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+{% endblock %}

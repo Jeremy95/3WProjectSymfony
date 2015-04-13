@@ -2,5 +2,21 @@
 
 {% block titlepage %}Dashboard{% endblock %}
 
-{% block content %}<h1><i class="fa fa-caret-right"></i>  Page d'accueil Dashboard</h1>{% endblock %}
+{% block content %}
+
+    <h1><i class="fa fa-caret-right"></i>  Page d'accueil Dashboard</h1>
+
+    {% for comment in comments %}
+    <p>{{ comment.user.firstname }} {{ comment.user.lastname }} dit : {{ comment.content }}</p>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+{% endblock %}
 

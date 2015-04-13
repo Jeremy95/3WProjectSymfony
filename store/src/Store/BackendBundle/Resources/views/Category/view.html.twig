@@ -2,4 +2,11 @@
 
 {% block titlepage %}Dashboard{% endblock %}
 
-{% block content %}<h1><i class="fa fa-cog"></i>  Catégorie {{ name }} // {{ id }}</h1>{% endblock %}
+{% block content %}
+
+    <h1><i class="fa fa-cog"></i>  {{ category.title }}</h1>
+
+    <p>Description : {{ category.description }}</p>
+    <p>Active : {{ category.active ? 'Oui' : 'Non' }}</p>
+
+{% endblock %}
