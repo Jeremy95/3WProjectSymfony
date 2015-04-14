@@ -50,14 +50,45 @@ class ProductType extends AbstractType {
                 'pattern' => '[A-Z][4]-[0-9][2]-[A-Z][1]'
             )
         ));
-        $builder->add('category');
+        $builder->add('category', null, array(
+            'label' => "Catégories associés",
+            'attr' => array(
+                'class' => 'form-control'
+            )
+        ));
         $builder->add('cms');
         $builder->add('supplier');
         $builder->add('tag');
-        $builder->add('summary');
-        $builder->add('description');
-        $builder->add('price');
-        $builder->add('taxe');
+        $builder->add('summary', null, array(
+            'label' => "Petit résumé",
+            'attr' => array(
+                'class' => 'form-control',
+                'placeholder' => 'petit résumé du bijoux'
+            )
+        ));
+        $builder->add('description', null, array(
+            'label' => "Titre de mon bijoux",
+            'attr' => array(
+                'class' => 'form-control',
+                'placeholder' => 'Description longue du bijoux'
+            )
+        ));
+        $builder->add('price', 'money', array(
+            'label' => 'Prix HT en €',
+            'attr' => array(
+                'class' => 'form-control',
+                'placeholder' => 'Prix en €'
+            )
+        ));
+        $builder->add('taxe', 'choice', array(
+            'choices' => array('5' => '5', '19.6' => '19.6', '20' => '20'),
+            'required' => true,
+            'preferred_choices' => array('20'),
+            'label' => 'Taxe appliquées',
+            'attr' => array(
+                'class' => 'form-control'
+            )
+        ));
         $builder->add('quantity');
         $builder->add('active');
         $builder->add('cover');
