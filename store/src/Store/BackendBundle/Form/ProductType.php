@@ -40,7 +40,8 @@ class ProductType extends AbstractType {
                 'class' => 'form-control',
                 'placeholder' => 'Mettre un titre soigné',
                 'pattern' => '[a-zA-Z0-9- ]{5,}'
-            )
+            ),
+            'required' => true
         ));
         $builder->add('ref', null, array(
             'label' => "Titre de mon bijoux",
@@ -48,7 +49,8 @@ class ProductType extends AbstractType {
                 'class' => 'form-control',
                 'placeholder' => 'AAAA-XX-B',
                 'pattern' => '[A-Z][4]-[0-9][2]-[A-Z][1]'
-            )
+            ),
+            'required' => true
         ));
         $builder->add('category', null, array(
             'label' => "Catégories associés",
@@ -79,21 +81,24 @@ class ProductType extends AbstractType {
             'attr' => array(
                 'class' => 'form-control',
                 'placeholder' => 'petit résumé du bijoux'
-            )
+            ),
+            'required' => true
         ));
         $builder->add('description', null, array(
             'label' => "Titre de mon bijoux",
             'attr' => array(
                 'class' => 'form-control',
                 'placeholder' => 'Description longue du bijoux'
-            )
+            ),
+            'required' => true
         ));
         $builder->add('price', 'money', array(
             'label' => 'Prix HT en €',
             'attr' => array(
                 'class' => 'form-control',
                 'placeholder' => 'Prix en €'
-            )
+            ),
+            'required' => true
         ));
         $builder->add('taxe', 'choice', array(
             'choices' => array('5' => '5', '19.6' => '19.6', '20' => '20'),
@@ -117,7 +122,11 @@ class ProductType extends AbstractType {
         $builder->add('cover', null, array(
             'label' => 'Produit mis en couverture dans la boutique'
         ));
-        $builder->add('Envoyer' , 'submit');
+        $builder->add('Envoyer' , 'submit', array(
+            'attr' => array(
+                'class' => 'btn btn-primary btn-sm'
+            )
+        ));
     }
 
     /**
