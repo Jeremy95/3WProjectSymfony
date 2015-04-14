@@ -2,6 +2,7 @@
 
 namespace Store\BackendBundle\Controller;
 
+use Store\BackEndBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -68,6 +69,10 @@ class ProductController extends Controller
 
     public function newAction()
     {
+        // je cree ici mon formulaire de produit
+        $form = $this->createForm(new ProductType());
+
+
         return $this->render('StoreBackendBundle:Product:new.html.twig');
     }
 }
