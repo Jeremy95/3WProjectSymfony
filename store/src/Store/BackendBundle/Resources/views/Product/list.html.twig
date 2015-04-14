@@ -5,6 +5,52 @@
 {% block content %}
     <h1><i class="fa fa-tags"></i>  Liste des produits</h1>
 
+    <div class="panel-body">
+        <ul class="nav nav-tabs" id="uidemo-tabs-default-demo">
+            <li class="active">
+                <a data-toggle="tab" href="#uidemo-tabs-default-demo-home">Actif </a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#uidemo-tabs-default-demo-profile">Inactif </a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#uidemo-tabs-default-demo-cover">Cover </a>
+            </li>
+        </ul>
+
+        <div class="tab-content tab-content-bordered">
+            <div id="uidemo-tabs-default-demo-home" class="tab-pane fade">
+                {% if actifproduct == null %}
+                Y a rien ici
+                {% else %}
+                {% for ap in actifproduct %}
+                    {{ ap.title }}
+                    <br/>
+                {% endfor %}
+                {% endif %}
+            </div> <!-- / .tab-pane -->
+            <div id="uidemo-tabs-default-demo-profile" class="tab-pane fade active in">
+                {% if inactifproduct == null %}
+                    Y a rien ici
+                {% else %}
+                {% for iap in inactifproduct %}
+                    {{ iap.title }}
+                {% endfor %}
+                {% endif %}
+            </div> <!-- / .tab-pane -->
+            <div id="uidemo-tabs-default-demo-cover" class="tab-pane fade">
+                {% if coverproduct == null %}
+                    Y a rien ici
+                {% else %}
+                    {% for cp in coverproduct %}
+                        {{ cp.title }}
+                        <br/>
+                    {% endfor %}
+                {% endif %}
+            </div> <!-- / .tab-pane -->
+        </div> <!-- / .tab-content -->
+    </div>
+
     <table class="table table-primary">
         <thead>
         <tr>

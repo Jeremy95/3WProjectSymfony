@@ -19,9 +19,18 @@ class ProductController extends Controller
 
         $products = $em->getRepository('StoreBackendBundle:Product')->findAll();
 
+        $actifproduct = $em->getRepository('StoreBackendBundle:Product')->getProductActif();
+
+        $inactifproduct = $em->getRepository('StoreBackendBundle:Product')->getProductInactif();
+
+        $coverproduct = $em->getRepository('StoreBackendBundle:Product')->getProductCover();
+
 
         return $this->render('StoreBackendBundle:Product:list.html.twig', array(
-            'products' => $products
+            'products' => $products,
+            'actifproduct' => $actifproduct,
+            'inactifproduct' => $inactifproduct,
+            'coverproduct' => $coverproduct
         ));
     }
 

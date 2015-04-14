@@ -29,4 +29,23 @@ class CategoryRepository extends EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * @param null $user
+     * @return mixed
+     */
+    public function getCountByUser($user = null)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                "
+                SELECT COUNT(c) AS nb
+                FROM StoreBackendBundle:Category c
+                WHERE c.jeweler = :user"
+            )
+            ->setParameter('user', $user);
+
+        return $query->getOneOrNullResult();
+
+    }
+
 }

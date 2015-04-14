@@ -3,8 +3,8 @@ store_backend_homepage:
     defaults: { _controller: StoreBackendBundle:Default:index }
 
 store_backend_index:
-    path:     /dashboard/{name}
-    defaults: { _controller: StoreBackendBundle:Main:index, name: null }
+    path:     /dashboard
+    defaults: { _controller: StoreBackendBundle:Main:index }
 
 store_backend_statics:
     resource: "@StoreBackendBundle/Resources/config/statics.yml"

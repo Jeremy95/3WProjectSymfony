@@ -30,5 +30,25 @@ class SupplierRepository extends EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * @param null $user
+     * @return mixed
+     */
+    public function getCountByUser($user = null)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                "
+                SELECT COUNT(s) AS nb
+                FROM StoreBackendBundle:Supplier s
+                JOIN s.product p
+                WHERE p.jeweler = :user"
+            )
+            ->setParameter('user', $user);
+
+        return $query->getOneOrNullResult();
+
+    }
+
 
 }
