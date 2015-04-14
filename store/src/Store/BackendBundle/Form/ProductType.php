@@ -32,8 +32,28 @@ class ProductType extends AbstractType {
     {
         // Ajoute un champ dans mon formulaire
         // le nom de mes champs sont les attribut de mpon entite product
-        $builder->add('title');
+        // le 2eme arg de ma fonction add est le type de mon champ
+        // 3eme arg option a mon champs
+        $builder->add('title', null, array(
+            'label' => "Titre de mon bijoux",
+            'attr' => array(
+                'class' => 'form-control',
+                'placeholder' => 'Mettre un titre soigné',
+                'pattern' => '[a-zA-Z0-9- ]{5,}'
+            )
+        ));
+        $builder->add('ref', null, array(
+            'label' => "Titre de mon bijoux",
+            'attr' => array(
+                'class' => 'form-control',
+                'placeholder' => 'AAAA-XX-B',
+                'pattern' => '[A-Z][4]-[0-9][2]-[A-Z][1]'
+            )
+        ));
         $builder->add('category');
+        $builder->add('cms');
+        $builder->add('supplier');
+        $builder->add('tag');
         $builder->add('summary');
         $builder->add('description');
         $builder->add('price');
