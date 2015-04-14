@@ -6,6 +6,7 @@ namespace Store\BackendBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * le suffixe type est obligatoire pour les classes des formulaires
@@ -47,6 +48,15 @@ class ProductType extends AbstractType {
      * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
+    {
+        // je lis le formulaire a l'entité product
+        $resolver->setDefaults(array(
+            'data_class' => 'Store\BackendBundle\Entity\Product'
+        ));
+    }
+
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         // je lis le formulaire a l'entité product
         $resolver->setDefaults(array(

@@ -694,4 +694,15 @@ class Jeweler extends \Store\BackendBundle\Entity\Jeweler implements \Doctrine\O
         return parent::getDateCreated();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+
+        return parent::__toString();
+    }
+
 }
