@@ -56,9 +56,24 @@ class ProductType extends AbstractType {
                 'class' => 'form-control'
             )
         ));
-        $builder->add('cms');
-        $builder->add('supplier');
-        $builder->add('tag');
+        $builder->add('cms', null, array(
+            'label' => 'Page associé au produit',
+            'attr' => array(
+                'class' => 'form-control'
+            )
+        ));
+        $builder->add('supplier', null, array(
+            'label' => 'Fournisseurs associé au produit',
+            'attr' => array(
+                'class' => 'form-control'
+            )
+        ));
+        $builder->add('tag', null, array(
+            'label' => 'Tag associé au produit',
+            'attr' => array(
+                'class' => 'form-control'
+            )
+        ));
         $builder->add('summary', null, array(
             'label' => "Petit résumé",
             'attr' => array(
@@ -89,9 +104,19 @@ class ProductType extends AbstractType {
                 'class' => 'form-control'
             )
         ));
-        $builder->add('quantity');
-        $builder->add('active');
-        $builder->add('cover');
+        $builder->add('quantity', null, array(
+            'label' => 'Quantité du produit',
+            'attr' => array(
+                'class' => 'form-control',
+                'pattern' => '[0-9][1,4]'
+            )
+        ));
+        $builder->add('active', null, array(
+            'label' => 'Produit activé dans la boutique'
+        ));
+        $builder->add('cover', null, array(
+            'label' => 'Produit mis en couverture dans la boutique'
+        ));
         $builder->add('Envoyer' , 'submit');
     }
 
