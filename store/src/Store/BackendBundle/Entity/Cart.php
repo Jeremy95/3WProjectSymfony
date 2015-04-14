@@ -125,4 +125,12 @@ class Cart
     {
         return $this->user;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->content;
+    }
 }

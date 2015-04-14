@@ -442,4 +442,12 @@ class Cms
     {
         return $this->product;
     }
+
+    /**
+     * @return mixed
+     */
+    public function __toString()
+    {
+        return $this->title;
+    }
 }

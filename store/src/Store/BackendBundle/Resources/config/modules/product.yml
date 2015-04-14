@@ -16,3 +16,8 @@ store_backend_product_remove:
     defaults: { _controller:StoreBackendBundle:Product:remove }
     requirements:
      id: \d+
+
+# page new product
+store_backend_product_new:
+    path:     /new
+    defaults: { _controller: StoreBackendBundle:Product:new }

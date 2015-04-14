@@ -38,6 +38,15 @@ class MainController extends Controller
 
         $totalorder = $em->getRepository("StoreBackendBundle:Orders")->getTotalOrder(1);
 
+        $getstock = $em->getRepository("StoreBackendBundle:Product")->isHaveStock();
+
+        $ishasstock = true;
+
+        if($getstock > 0)
+        {
+            $ishasstock = false;
+        }
+
 
         return $this->render('StoreBackendBundle:Main:index.html.twig', array(
             'nbprod' => $nbprod,
@@ -49,7 +58,9 @@ class MainController extends Controller
             'nborders' => $nborders,
             'orders' => $orders,
             'cms' => $cms,
-            'totalorder' => $totalorder
+            'totalorder' => $totalorder,
+            'ishasstock' => $ishasstock,
+            'getstock' => $getstock
 
         ));
     }

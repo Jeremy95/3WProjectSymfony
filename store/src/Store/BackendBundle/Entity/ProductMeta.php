@@ -395,4 +395,12 @@ class ProductMeta
     {
         return $this->product;
     }
+
+    /**
+     * @return int
+     */
+    public function __toString()
+    {
+        return $this->id;
+    }
 }

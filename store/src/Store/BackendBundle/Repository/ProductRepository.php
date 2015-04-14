@@ -91,5 +91,20 @@ class ProductRepository extends EntityRepository
         return $query->getResult();
     }
 
+    public function isHaveStock()
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+            "
+            SELECT p
+            FROM StoreBackendBundle:Product p
+            WHERE p.quantity = 0"
+            );
+
+        return $query->getResult();
+
+
+    }
+
 
 }

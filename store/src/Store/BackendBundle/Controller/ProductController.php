@@ -65,4 +65,9 @@ class ProductController extends Controller
         return $this->redirectToRoute('store_backend_product_list');
 
     }
+
+    public function newAction()
+    {
+        return $this->render('StoreBackendBundle:Product:new.html.twig');
+    }
 }
