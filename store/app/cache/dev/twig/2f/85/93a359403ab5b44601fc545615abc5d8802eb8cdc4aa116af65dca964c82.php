@@ -46,7 +46,13 @@ class __TwigTemplate_2f8593a359403ab5b44601fc545615abc5d8802eb8cdc4aa116af65dca9
     {
         // line 8
         echo "
-    
+    ";
+        // line 10
+        echo "
+    ";
+        // line 11
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form');
+        echo "
 
 
 ";
@@ -64,6 +70,6 @@ class __TwigTemplate_2f8593a359403ab5b44601fc545615abc5d8802eb8cdc4aa116af65dca9
 
     public function getDebugInfo()
     {
-        return array (  48 => 8,  45 => 7,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  54 => 11,  51 => 10,  48 => 8,  45 => 7,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

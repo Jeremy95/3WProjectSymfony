@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Store\BackEndBundle\Form;
+namespace Store\BackendBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,7 +21,7 @@ class ProductType extends AbstractType {
      */
     public function getName()
     {
-        // TODO: Implement getName() method.
+        return "store_backend_product";
     }
 
     /**
